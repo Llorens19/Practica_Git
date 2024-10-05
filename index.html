@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pràctica Git Evaluable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Sistema de control de versions - Git</h1>
+    <h3>Diego Llorens Soriano</h3>
+
+
+    <h2>Índex</h2>
+    <nav class="navegacion">
+        <ul>
+            <li><a href="#introduccio">1. Introducció</a></li>
+            <ul>
+                <li><a href="#que_volem_simular">1.1. Què volem simular?</a></li>
+                <li><a href="#requeriments">1.2. Requeriments</a></li>
+            </ul>
+            <li><a href="#desenvolupament">2. Desenvolupament de la tasca</a></li>
+            <ul>
+                <li><a href="#introduccio_teorica">2.1. Introducció teòrica</a></li>
+                <ul>
+                    <li><a href="#que_es_git">2.1.1. Què és Git?</a></li>
+                    <li><a href="#que_es_gitflow">2.1.2. Què és Git Flow?</a></li>
+                </ul>
+                <li><a href="#explicacio_proces">2.2. Explicació detallada del procés</a></li>
+                <ul>
+                    <li><a href="#usuari1">2.2.1. Usuari 1: Creació del repositori i estructura inicial</a></li>
+                    <li><a href="#usuari2">2.2.2. Usuari 2: Creació de features per al contingut HTML</a></li>
+                    <li><a href="#usuari3">2.2.3. Usuari 3: Creació de feature per als estils CSS i release</a></li>
+                    <li><a href="#hotfix">2.2.4. Usuari 1: Creació d'un hotfix</a></li>
+                </ul>
+            </ul>
+            <li><a href="#publicacio">3. Publicació de la documentació en GitHub Pages</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="introduccio">1.- Introducció</h2>
+    <p>
+        Un client encarregat de realitzar formacions a empreses ha decidit crear un curs nou per poder
+        ensenyar JavaScript aplicat a interaccions amb elements HTML. La seua idea és que el producte final
+        tinga un aspecte similar al següent esquema:
+    </p>
+    <img src="img/1.png">
+
+    <h3 id="que_volem_simular">1.1.- Què volem simular?</h3>
+    <p>
+        L'objectiu és mostrar com funciona Git en un entorn de treball col·laboratiu i com s'utilitzen diferents
+        branques per gestionar les versions del codi.
+    </p>
+
+    <h3 id="requeriments">1.2.- Requeriments</h3>
+    <p>
+        El nostre equip de programadors està compost per tres persones, amb les següents responsabilitats:
+    </p>
+    <ul>
+        <li><strong>Usuari 1:</strong> Crear el repositori del projecte, implementar l'estructura inicial de la pàgina,
+            que inclourà la capçalera, la barra de navegació amb accés a Home i el peu de pàgina. A la part central del
+            Home, inclourà una breu descripció del curs.</li>
+        <li><strong>Usuari 2:</strong> Crear la secció "Modificar contingut HTML", que inclourà exemples i explicacions,
+            i també desenvoluparà la secció "Modificar atributs HTML".</li>
+        <li><strong>Usuari 3:</strong> Implementarà la secció "Modificar estils CSS" amb exemples i comentaris.</li>
+    </ul>
+
+    <h2 id="desenvolupament">2.- Desenvolupament de la tasca</h2>
+
+    <h3 id="introduccio_teorica">2.1.- Introducció teòrica</h3>
+    <h4 id="que_es_git">2.1.1.- Què és Git?</h4>
+    <p>
+        Git és un sistema de control de versions que permet gestionar els canvis en el codi i col·laborar entre
+        programadors. Facilita mantindre un historial de modificacions, revertir errors i treballar sense conflictes.
+    </p>
+
+    <h4 id="que_es_gitflow">2.1.2.- Què és Git Flow?</h4>
+    <p>
+        Git Flow és una metodologia de treball que organitza el desenvolupament en diferents branques:
+    </p>
+    <ul>
+        <li><strong>Master:</strong> Conté el codi estable en producció.</li>
+        <li><strong>Develop:</strong> Rama de desenvolupament on s'integren noves funcionalitats.</li>
+        <li><strong>Feature:</strong> Es creen per afegir noves funcionalitats, que després es fusionen en develop.</li>
+        <li><strong>Release:</strong> Es creen per preparar el codi abans de llançar una nova versió estable.</li>
+        <li><strong>Hotfix:</strong> Es creen per corregir errors urgents en producció.</li>
+    </ul>
+
+    <h3 id="explicacio_proces">2.2.- Explicació detallada del procés</h3>
+
+    <h4 id="usuari1">2.2.1.- Usuari 1: Creació del repositori i estructura inicial</h4>
+    <p>
+        L'usuari 1, el més experimentat, crea el repositori del projecte i segueix els passos de la metodologia Git
+        Flow:
+    </p>
+    <ol>
+        <li>Crear un nou repositori remot y el clonem al local:
+            <code>git clone https://github.com/Llorens19/Practica_Git.git</code>
+            <img src="img/2.png">
+            <img src="img/3.png">
+        </li>
+        <li>Inicialitzar Git Flow: <code>git flow init</code>
+            <img src="img/4.png">
+        </li>
+        <li>Crear una branca feature: <code>git flow feature start estructura_usuari1</code>
+            <img src="img/5.png">
+        </li>
+        <li>Després de finalitzar els commits en aquesta branca, tancar-la:
+            <code>git flow feature finish estructura_usuari1</code>
+            <img src="img/6.png">
+        </li>
+        <li>Enviar els canvis al remot: <code>git push --set-upstream origin develop</code>
+            <img src="img/7.png">
+        </li>
+
+    </ol>
+    <p>Resultat de la fusió de les branques:</p>
+    <img src="img/8.png">
+    <h4 id="usuari2">2.2.2.- Usuari 2: Creació de features per al contingut HTML</h4>
+    <p>
+        L'usuari 2 s'encarrega de crear dues features, una per a "Modificar contingut HTML" i una altra per a "Modificar
+        atributs HTML". Els passos són:
+    </p>
+    <ol>
+        <li>Clonar les branques i el contingut remot: <code>git pull origin</code>
+            <img src="img/9.png">
+        </li>
+        <li>Crear una branca feature: <code>git flow feature start seccion_modificar_contingut_html</code>
+            <img src="img/10.png">
+        </li>
+        <li>Finalitzar els commits i tancar la branca:
+            <code>git flow feature finish seccion_modificar_contingut_html</code>
+            <img src="img/11.png">
+        </li>
+        <li>Crear una nova feature per a la secció d'atributs:
+            <code>git flow feature start seccion_atr_html_usuari2</code>
+            <img src="img/12.png">
+        </li>
+    </ol>
+    <img src="img/13.png">
+
+    <h4 id="usuari3">2.2.3.- Usuari 3: Creació de feature per als estils CSS i release</h4>
+    <p>
+        L'usuari 3, encarregat dels estils CSS, crea una feature per afegir la seua part del codi i després llança la
+        release:
+    </p>
+    <ol>
+        <li>Crear una branca feature: <code>git flow feature start seccion_css_usuari3</code></li>
+        <li>Finalitzar els commits i tancar la branca: <code>git flow feature finish seccion_css_usuari3</code>
+            <img src="img/14.png">
+        </li>
+        <li>Crear una nova branca release: <code>git flow release start v1.0</code>
+            <img src="img/15.png">
+        </li>
+        <li>Després de comprovar que no hi ha errors, tancar la branca: <code>git flow release finish v1.0</code></li>
+    </ol>
+    <img src="img/16.png">
+
+    <h4 id="hotfix">2.2.4.- Usuari 1: Creació d'un hotfix</h4>
+    <p>
+        Després que l'usuari 2 completara el seu treball, l'usuari 1 realitza millores a la secció creada per l'usuari 2
+        mitjançant un hotfix:
+    </p>
+    <ol>
+        <li>Crear una branca hotfix: <code>git flow hotfix start milloresV_1_0</code></li>
+        <li>Finalitzar el hotfix i fusionar els canvis: <code>git flow hotfix finish milloresV_1_0</code></li>
+    </ol>
+    <img src="img/17.png">
+
+    <h3 id="publicacio">3.- Publicació de la documentació en GitHub Pages</h3>
+    <p>
+        Finalment, el projecte ha de publicar-se en GitHub Pages, on s'inclourà tota la documentació del procés, l'ús de
+        Git Flow, commits i branques.
+    </p>
+    <p>
+        <code>git checkout -b gh-pages</code>
+    </p>
+    <img src="ruta_a_tu_imagen_6.jpg" alt="Documentació en GitHub Pages">
+
+</body>
+
+</html>
