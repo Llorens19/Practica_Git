@@ -95,6 +95,9 @@ footer a {
 .codigo p {
     color: black;
 }
+.codigo pre {
+    color: black;
+}
 .explicacion {
     margin-bottom: 40px;
 }
