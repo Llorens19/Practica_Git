@@ -55,3 +55,42 @@ footer a {
     align-items: center;
     height: 40vh;
 }
+.cont_html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    background-color: #ffffff;
+    color: white;
+    width: 100%;
+}
+
+.codigo {
+    width: 50%;
+    height: 50%;
+    background-color: #f1f1f1;
+    padding: 30px;
+    margin: 10px;
+}
+
+.resultado {
+    width: 50%;
+    height: 50%;
+    background-color: #f1f1f1;
+    padding: 30px;
+    margin: 10px;
+}
+
+.codigo p {
+    color: black;
+}
